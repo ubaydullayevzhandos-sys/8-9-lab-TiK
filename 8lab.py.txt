@@ -1,0 +1,14 @@
+#1-есеп
+N = 135
+k = 0 while 2 ** k < N: k += 1
+print("1-есеп:") print("Алфавиттегі символ саны:", N) print("Бір символға қажет бит саны:", k) print("2^", k, "=", 2 ** k)
+#2-есеп
+codes = { "0": "A", "10": "B", "110": "C", "111": "D" }
+message = "1011100110"
+result = "" temp = ""
+for bit in message: temp += bit
+if temp in codes:
+    result += codes[temp]
+    temp = ""
+print("\n2-есеп:") print("Бастапқы хабар:", message) print("Декодталған хабар:", result)
+
