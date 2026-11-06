@@ -1,0 +1,24 @@
+1-есеп
+data = "11001010"
+n = 12 code = [0] * (n + 1)
+j = 0
+for i in range(1, n + 1): if i not in [1, 2, 4, 8]: code[i] = int(data[j]) j += 1
+Бақылау разрядтарын есептеу
+for p in [1, 2, 4, 8]: s = 0 for i in range(1, n + 1): if i & p and i != p: s ^= code[i] code[p] = s
+C = ''.join(str(code[i]) for i in range(1, n + 1))
+print("1-есеп:") print("Ақпараттық комбинация:", data) print("Хэмминг коды:", C)
+2-есеп
+received = code.copy()
+3-разрядты бұрмалау
+received[3] ^= 1
+print("\n2-есеп:")
+C_star = ''.join(str(received[i]) for i in range(1, n + 1)) print("Қабылданған код:", C_star)
+Синдромды есептеу
+syndrome = 0
+for p in [1, 2, 4, 8]: s = 0 for i in range(1, n + 1): if i & p: s ^= received[i] if s: syndrome += p
+print("Синдром:", format(syndrome, '04b')) print("Қате разряд:", syndrome)
+Қатені түзету
+received[syndrome] ^= 1
+corrected = ''.join(str(received[i]) for i in range(1, n + 1))
+print("Түзетілген код:", corrected)
+
